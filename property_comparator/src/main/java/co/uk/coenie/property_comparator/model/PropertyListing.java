@@ -1,5 +1,9 @@
 package co.uk.coenie.property_comparator.model;
 
+import java.util.Objects;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 public class PropertyListing {
 	private int propertyReference;
 	private int price;
@@ -9,7 +13,7 @@ public class PropertyListing {
 	private String address;
 	private String region;
 	private String postcode;
-	private PropertyListingType propertyType;
+	private PropertyType propertyType;
 	
 	
 	public int getPropertyReference() {
@@ -60,11 +64,40 @@ public class PropertyListing {
 	public void setPostcode(String postcode) {
 		this.postcode = postcode;
 	}
-	public PropertyListingType getPropertyType() {
+	public PropertyType getPropertyType() {
 		return propertyType;
 	}
-	public void setPropertyType(PropertyListingType propertyType) {
+	public void setPropertyType(PropertyType propertyType) {
 		this.propertyType = propertyType;
 	}
+	
+	
+	@Override
+	public boolean equals(final Object other) {
+		if (!(other instanceof PropertyListing)) {
+			return false;
+		}
+		PropertyListing castOther = (PropertyListing) other;
+		return Objects.equals(propertyReference, castOther.propertyReference) && Objects.equals(price, castOther.price)
+				&& Objects.equals(bedrooms, castOther.bedrooms) && Objects.equals(bathrooms, castOther.bathrooms)
+				&& Objects.equals(houseNumber, castOther.houseNumber) && Objects.equals(address, castOther.address)
+				&& Objects.equals(region, castOther.region) && Objects.equals(postcode, castOther.postcode)
+				&& Objects.equals(propertyType, castOther.propertyType);
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(propertyReference, price, bedrooms, bathrooms, houseNumber, address, region, postcode,
+				propertyType);
+	}
+	
+	@Override
+	public String toString() {
+		return new ToStringBuilder(this, ToStringStyle.DEFAULT_STYLE).append("propertyReference", propertyReference)
+				.append("price", price).append("bedrooms", bedrooms).append("bathrooms", bathrooms)
+				.append("houseNumber", houseNumber).append("address", address).append("region", region)
+				.append("postcode", postcode).append("propertyType", propertyType).toString();
+	}
+	
 	
 }

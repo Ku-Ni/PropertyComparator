@@ -4,10 +4,10 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class Questions {
+public class TestQuestions {
 
 	@Test
-	// Find the mean price in the postcode outward ‘W1F’?
+	// Find the mean price in the postcode outward ï¿½W1Fï¿½?
 	public void findMeanPriceOutwardPostcode(){
 		fail("not yet implemented");
 	}
