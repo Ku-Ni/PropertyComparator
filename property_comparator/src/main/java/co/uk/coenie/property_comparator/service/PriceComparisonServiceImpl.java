@@ -5,11 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import co.uk.coenie.property_comparator.dao.PropertyDao;
 import co.uk.coenie.property_comparator.model.AveragePrice;
 import co.uk.coenie.property_comparator.model.AveragePriceDifference;
 import co.uk.coenie.property_comparator.model.PropertyListing;
 import co.uk.coenie.property_comparator.model.PropertyType;
-import dao.PropertyDao;
 
 @Service
 public class PriceComparisonServiceImpl implements PriceComparisonService{

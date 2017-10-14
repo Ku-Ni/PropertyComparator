@@ -14,11 +14,11 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
 
+import co.uk.coenie.property_comparator.dao.PropertyDao;
 import co.uk.coenie.property_comparator.model.AveragePrice;
 import co.uk.coenie.property_comparator.model.AveragePriceDifference;
 import co.uk.coenie.property_comparator.model.PropertyListing;
 import co.uk.coenie.property_comparator.model.PropertyType;
-import dao.PropertyDao;
 
 public class PriceComparisonServiceImplTest {
 	

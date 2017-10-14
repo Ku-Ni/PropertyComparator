@@ -1,4 +1,4 @@
-package dao;
+package co.uk.coenie.property_comparator.dao;
 
 import java.util.List;
 
