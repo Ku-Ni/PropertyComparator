@@ -38,22 +38,24 @@ Takes a string parameter named postcode and returns the average price for proper
 supplied value outward as a JSON result, will return exception if no results for the supplied 
 postcode is found.
 
-e.g. GET /average-price/postcode?postcode=W1F 
+e.g. `GET /average-price/postcode?postcode=W1F`
 returns 
+```json
 {
     "postcode": "W1F",
     "propertyType": null,
     "averagePrice": 1158750
 }
-
+```
 ### GET /average-price-difference/property-types
 Takes two string parameters named property-type1 and property-type2 and returns a JSON object 
 containing an array with the average prices for each property type and the difference between the 
 two types.
 The supplied parameters must be valid property types (Mansion,Flat,Detached,Terraced)
 
-e.g. GET /average-price-difference/property-types?property-type1=Detached&property-type2=Flat 
+e.g. `GET /average-price-difference/property-types?property-type1=Detached&property-type2=Flat` 
 returns
+```json
 {
     "propertyTypes": [
         {
@@ -69,7 +71,7 @@ returns
     ],
     "priceDifference": 43420.625
 }
-
+```
 ### GET /properties/top-percentage
 Takes double parameter name percentage and retrieves the top percentage of properties ordered by 
 descending price value.
@@ -77,8 +79,9 @@ Properties outside the matched percentage, but which are valued the same as prop
 will also be included in the result.
 The method will only use the absolute value of the supplied percentage.
 
-e.g. GET /properties/top-percentage?percentage=10 
+e.g. `GET /properties/top-percentage?percentage=10` 
 returns
+```
 [
     {
         "propertyReference": 12,
@@ -103,8 +106,7 @@ returns
         "propertyType": "MANSION"
     }
 ] 	 
-
-
+```
 ## Build and run:
 The project uses Java8, Spring-Boot and Maven.
 To build the code, run as Maven build with goals: clean package, which will build an executable
