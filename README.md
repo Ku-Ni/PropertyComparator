@@ -81,7 +81,7 @@ The method will only use the absolute value of the supplied percentage.
 
 e.g. `GET /properties/top-percentage?percentage=10` 
 returns
-```
+```json
 [
     {
         "propertyReference": 12,
