@@ -44,7 +44,7 @@ public class PropertyComparatorController {
 	@RequestMapping(value="/properties/top-percentage",method=RequestMethod.GET)
 	public @ResponseBody List<PropertyListing> findMostExpensivePropertiesByPercentage(
 			@RequestParam(value="percentage", required=true) double percentage) {
-		return priceComparisonService.findMostExpensivePropertiesByPercentage(percentage);
+		return priceComparisonService.findMostExpensivePropertiesByPercentage(Math.abs(percentage));
 	}
 
 }
