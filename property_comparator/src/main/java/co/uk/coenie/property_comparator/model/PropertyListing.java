@@ -1,6 +1,8 @@
 package co.uk.coenie.property_comparator.model;
 
 import java.util.Objects;
+
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -52,7 +54,7 @@ public class PropertyListing {
 		return houseNumber;
 	}
 	public PropertyListing setHouseNumber(String houseNumber) {
-		this.houseNumber = houseNumber;
+		this.houseNumber = StringUtils.trim(houseNumber);
 		return this;
 	}
 	
@@ -60,7 +62,7 @@ public class PropertyListing {
 		return address;
 	}
 	public PropertyListing setAddress(String address) {
-		this.address = address;
+		this.address = StringUtils.trim(address);
 		return this;
 	}
 	
@@ -68,7 +70,7 @@ public class PropertyListing {
 		return region;
 	}
 	public PropertyListing setRegion(String region) {
-		this.region = region;
+		this.region = StringUtils.trim(region);
 		return this;
 	}
 	
@@ -76,7 +78,7 @@ public class PropertyListing {
 		return postcode;
 	}
 	public PropertyListing setPostcode(String postcode) {
-		this.postcode = postcode;
+		this.postcode = StringUtils.trim(postcode);
 		return this;
 	}
 	

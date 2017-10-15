@@ -14,13 +14,16 @@ public class SpringConfig {
 	public DataSource dataSource(){
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("org.relique.jdbc.csv.CsvDriver");
-        dataSource.setUrl("jdbc:relique:csv:data/property-data.csv");
+		// Set path to resources/data
+		ClassLoader loader = SpringConfig.class.getClassLoader();
+		String dataPath = loader.getResource("data").getPath();		
+        dataSource.setUrl("jdbc:relique:csv:"+dataPath);
 		
 		return dataSource;
 	}
 	
 	@Bean
-	public NamedParameterJdbcTemplate jdbcTemplate(){
+	public NamedParameterJdbcTemplate namedParameterJdbcTemplate(){
 		return new NamedParameterJdbcTemplate(dataSource());
 	}
 }

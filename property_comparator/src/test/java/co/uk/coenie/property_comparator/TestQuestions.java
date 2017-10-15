@@ -53,6 +53,7 @@ public class TestQuestions {
 				.setPrice(7500000)
 				.setBedrooms(11)
 				.setBathrooms(4)
+				.setHouseNumber("")
 				.setAddress("Brighton Road")
 				.setRegion("Surrey")
 				.setPostcode("GU13 4DD")

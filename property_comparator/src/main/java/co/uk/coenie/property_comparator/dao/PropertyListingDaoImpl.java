@@ -23,30 +23,30 @@ public class PropertyListingDaoImpl implements PropertyListingDao{
 			"select * from property-data";
 	
 	
-	private NamedParameterJdbcTemplate jdbcTemplate;
+	private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 	
 	@Autowired
-	public PropertyListingDaoImpl(NamedParameterJdbcTemplate jdbcTemplate){
-		this.jdbcTemplate = jdbcTemplate;
+	public PropertyListingDaoImpl(NamedParameterJdbcTemplate namedParameterJdbcTemplate){
+		this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
 	}
 	
 	@Override
 	public double selectAveragePriceByPostcode(String postcode) {
 		Map<String, Object> paramMap = new HashMap<>();
-		paramMap.put("postcode", postcode);
-		return (double) jdbcTemplate.queryForMap(selectAveragePriceByPostcode, paramMap).get("AVERAGE_PRICE");
+		paramMap.put("postcode", postcode+"%");
+		return (double) namedParameterJdbcTemplate.queryForMap(selectAveragePriceByPostcode, paramMap).get("AVERAGE_PRICE");
 	}
 
 	@Override
 	public double selectAveragePriceByPropertyType(PropertyType propertyType) {
 		Map<String, Object> paramMap = new HashMap<>();
 		paramMap.put("propertyType", propertyType.getName());
-		return (double) jdbcTemplate.queryForMap(selectAveragePriceByPropertyType, paramMap).get("AVERAGE_PRICE");
+		return (double) namedParameterJdbcTemplate.queryForMap(selectAveragePriceByPropertyType, paramMap).get("AVERAGE_PRICE");
 	}
 
 	@Override
 	public List<PropertyListing> selectAllProperties() {
-		return jdbcTemplate.query(selectAllProperties, (rs, rowNum) -> {
+		return namedParameterJdbcTemplate.query(selectAllProperties, (rs, rowNum) -> {
 			return new PropertyListing()
 					.setPropertyReference(rs.getInt("PROPERTY_REFERENCE"))
 					.setPrice(rs.getInt("PRICE"))
