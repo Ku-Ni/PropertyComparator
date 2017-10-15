@@ -1,5 +1,6 @@
 package co.uk.coenie.property_comparator.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -13,13 +14,10 @@ public class AveragePriceDifference {
 	@JsonProperty
 	private double priceDifference;
 	
+	public AveragePriceDifference(){
+		propertyTypes = new ArrayList<>();
+	}
 	
-	public List<AveragePrice> getPropertyTypes() {
-		return propertyTypes;
-	}
-	public void setPropertyTypes(List<AveragePrice> propertyTypes) {
-		this.propertyTypes = propertyTypes;
-	}
 	
 	public double getPriceDifference() {
 		return priceDifference;
@@ -28,6 +26,13 @@ public class AveragePriceDifference {
 		this.priceDifference = priceDifference;
 	}
 	
+	
+	public List<AveragePrice> getPropertyTypes() {
+		return propertyTypes;
+	}
+	public void addPropertyType(PropertyType propertyType, double averagePrice){
+		propertyTypes.add(new AveragePrice().setPropertyType(propertyType).setAveragePrice(averagePrice));
+	}
 	
 	@Override
 	public boolean equals(final Object other) {

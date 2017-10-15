@@ -19,56 +19,73 @@ public class PropertyListing {
 	public int getPropertyReference() {
 		return propertyReference;
 	}
-	public void setPropertyReference(int propertyReference) {
+	public PropertyListing setPropertyReference(int propertyReference) {
 		this.propertyReference = propertyReference;
+		return this;
 	}
+	
 	public int getPrice() {
 		return price;
 	}
-	public void setPrice(int price) {
+	public PropertyListing setPrice(int price) {
 		this.price = price;
+		return this;
 	}
+	
 	public int getBedrooms() {
 		return bedrooms;
 	}
-	public void setBedrooms(int bedrooms) {
+	public PropertyListing setBedrooms(int bedrooms) {
 		this.bedrooms = bedrooms;
+		return this;
 	}
+	
 	public int getBathrooms() {
 		return bathrooms;
 	}
-	public void setBathrooms(int bathrooms) {
+	public PropertyListing setBathrooms(int bathrooms) {
 		this.bathrooms = bathrooms;
+		return this;
 	}
+	
 	public String getHouseNumber() {
 		return houseNumber;
 	}
-	public void setHouseNumber(String houseNumber) {
+	public PropertyListing setHouseNumber(String houseNumber) {
 		this.houseNumber = houseNumber;
+		return this;
 	}
+	
 	public String getAddress() {
 		return address;
 	}
-	public void setAddress(String address) {
+	public PropertyListing setAddress(String address) {
 		this.address = address;
+		return this;
 	}
+	
 	public String getRegion() {
 		return region;
 	}
-	public void setRegion(String region) {
+	public PropertyListing setRegion(String region) {
 		this.region = region;
+		return this;
 	}
+	
 	public String getPostcode() {
 		return postcode;
 	}
-	public void setPostcode(String postcode) {
+	public PropertyListing setPostcode(String postcode) {
 		this.postcode = postcode;
+		return this;
 	}
+	
 	public PropertyType getPropertyType() {
 		return propertyType;
 	}
-	public void setPropertyType(PropertyType propertyType) {
+	public PropertyListing setPropertyType(PropertyType propertyType) {
 		this.propertyType = propertyType;
+		return this;
 	}
 	
 	

@@ -5,7 +5,7 @@ import java.util.List;
 import co.uk.coenie.property_comparator.model.PropertyListing;
 import co.uk.coenie.property_comparator.model.PropertyType;
 
-public interface PropertyDao {
+public interface PropertyListingDao {
 	
 	/**
 	 * Returns the average price for postcodes starting with

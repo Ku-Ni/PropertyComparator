@@ -19,22 +19,25 @@ public class AveragePrice {
 	public String getPostcode() {
 		return postcode;
 	}
-	public void setPostcode(String postcode) {
+	public AveragePrice setPostcode(String postcode) {
 		this.postcode = postcode;
+		return this;
 	}
 	public PropertyType getPropertyType() {
 		return propertyType;
 	}
 	
-	public void setPropertyType(PropertyType propertyType) {
+	public AveragePrice setPropertyType(PropertyType propertyType) {
 		this.propertyType = propertyType;
+		return this;
 	}	
 	public double getAveragePrice() {
 		return averagePrice;
 	}
 	
-	public void setAveragePrice(double averagePrice) {
+	public AveragePrice setAveragePrice(double averagePrice) {
 		this.averagePrice = averagePrice;
+		return this;
 	}
 	
 	
