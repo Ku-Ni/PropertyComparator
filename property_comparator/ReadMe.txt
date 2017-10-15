@@ -2,19 +2,25 @@
 Overview:
 ==================================================================================================
 
-Here is my completed Back-End Developer technical test.
-This has also been added to my GitHub: https://github.com/Ku-Ni/PropertyComparator
-I created a web service using the CSV data file as a repository, with end points based on the assignment questions.
+Here is my completed Back-End Developer technical test; this has also been added to my 
+GitHub: https://github.com/Ku-Ni/PropertyComparator
+
+I created a web service using the CSV data file as a repository, with end points based on the 
+assignment questions.
+The CSV data file is packaged with the jar when built and can be found under data in the
+resources folder.
 
 There are three end points:
 
 ---------------------------
 GET /average-price/postcode
 ---------------------------
-Takes a string parameter named postcode and returns the average price for properties matching the supplied value outward as a 
-JSON result, will return exception if no results for the supplied postcode is found.
+Takes a string parameter named postcode and returns the average price for properties matching the 
+supplied value outward as a JSON result, will return exception if no results for the supplied 
+postcode is found.
 
-e.g. GET /average-price/postcode?postcode=W1F returns 
+e.g. GET /average-price/postcode?postcode=W1F 
+returns 
 {
     "postcode": "W1F",
     "propertyType": null,
@@ -24,11 +30,13 @@ e.g. GET /average-price/postcode?postcode=W1F returns
 --------------------------------------------
 GET /average-price-difference/property-types
 --------------------------------------------
-Takes two string parameters named property-type1 and property-type2 and returns a JSON object containing an array with the 
-average prices for each property type and the difference between the two types.
+Takes two string parameters named property-type1 and property-type2 and returns a JSON object 
+containing an array with the average prices for each property type and the difference between the 
+two types.
 The supplied parameters must be valid property types (Mansion,Flat,Detached,Terraced)
 
-e.g. GET /average-price-difference/property-types?property-type1=Detached&property-type2=Flat returns
+e.g. GET /average-price-difference/property-types?property-type1=Detached&property-type2=Flat 
+returns
 {
     "propertyTypes": [
         {
@@ -48,11 +56,14 @@ e.g. GET /average-price-difference/property-types?property-type1=Detached&proper
 ------------------------------
 GET /properties/top-percentage
 ------------------------------
-Takes double parameter name percentage and retrieves the top percentage of properties ordered by descending price value.
-Properties outside the matched percentage, but which are valued the same as properties inside, will also be included 
-in the result.
+Takes double parameter name percentage and retrieves the top percentage of properties ordered by 
+descending price value.
+Properties outside the matched percentage, but which are valued the same as properties inside, 
+will also be included in the result.
 The method will only use the absolute value of the supplied percentage.
-e.g. GET /properties/top-percentage?percentage=10 returns
+
+e.g. GET /properties/top-percentage?percentage=10 
+returns
 [
     {
         "propertyReference": 12,
