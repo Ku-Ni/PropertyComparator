@@ -9,7 +9,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ApiError {
 	@JsonProperty
-	private HttpStatus status;@JsonProperty
+	private HttpStatus status;
+	@JsonProperty
 	private String message;
 	@JsonProperty
 	private List<String> errors;

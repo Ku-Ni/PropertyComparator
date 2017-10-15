@@ -59,7 +59,7 @@ public class PriceComparisonServiceImpl implements PriceComparisonService{
 		List<PropertyListing> result = new ArrayList<>(allListings.subList(0, numListings));
 
 		// Add listings where the listing price falls within the top percentage selected
-		if (result.size()>0)
+		if (result.size()>0 && result.size()<allListings.size())
 			while (result.get(numListings-1).getPrice()==allListings.get(numListings).getPrice()){
 				result.add(allListings.get(numListings));
 				numListings++;

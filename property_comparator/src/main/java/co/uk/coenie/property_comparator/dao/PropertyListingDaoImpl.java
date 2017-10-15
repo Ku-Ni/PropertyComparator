@@ -21,27 +21,41 @@ public class PropertyListingDaoImpl implements PropertyListingDao{
 			"select AVG(PRICE) as AVERAGE_PRICE from property-data where PROPERTY_TYPE = :propertyType";
 	private final String selectAllProperties = 
 			"select * from property-data";
-	
-	
+
+
 	private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
-	
+
 	@Autowired
 	public PropertyListingDaoImpl(NamedParameterJdbcTemplate namedParameterJdbcTemplate){
 		this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
 	}
-	
+
 	@Override
 	public double selectAveragePriceByPostcode(String postcode) {
 		Map<String, Object> paramMap = new HashMap<>();
 		paramMap.put("postcode", postcode+"%");
-		return (double) namedParameterJdbcTemplate.queryForMap(selectAveragePriceByPostcode, paramMap).get("AVERAGE_PRICE");
+
+		Map<String, Object> resultMap = namedParameterJdbcTemplate.queryForMap(selectAveragePriceByPostcode, paramMap);
+
+		try {
+			return (double) resultMap.get("AVERAGE_PRICE");
+		} catch (NullPointerException e){
+			throw new PostcodeNotFoundException("Postcode "+postcode+" not found");
+		}
 	}
 
 	@Override
 	public double selectAveragePriceByPropertyType(PropertyType propertyType) {
 		Map<String, Object> paramMap = new HashMap<>();
 		paramMap.put("propertyType", propertyType.getName());
-		return (double) namedParameterJdbcTemplate.queryForMap(selectAveragePriceByPropertyType, paramMap).get("AVERAGE_PRICE");
+
+		Map<String, Object> resultMap = namedParameterJdbcTemplate.queryForMap(selectAveragePriceByPropertyType, paramMap);
+
+		try {
+			return (double) resultMap.get("AVERAGE_PRICE");
+		} catch (NullPointerException e){
+			throw new PropertyTypeNotFoundException("PropertyType "+propertyType.getName()+" not found");
+		}
 	}
 
 	@Override

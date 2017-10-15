@@ -2,6 +2,7 @@ package co.uk.coenie.property_comparator.controller;
 
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,10 +36,12 @@ public class PropertyComparatorController {
 	public @ResponseBody AveragePriceDifference findAveragePriceByPropertyType(
 			@RequestParam(value="property-type1", required=true) String propertyType1, 
 			@RequestParam(value="property-type2", required=true) String propertyType2) {
-		return priceComparisonService.findAveragePriceDifferenceByPropertyType(PropertyType.valueOf(propertyType1), PropertyType.valueOf(propertyType2));
+		return priceComparisonService.findAveragePriceDifferenceByPropertyType(
+				PropertyType.valueOf(StringUtils.upperCase(propertyType1)), 
+				PropertyType.valueOf(StringUtils.upperCase(propertyType2)));
 	}
 
-	@RequestMapping(value="/average-price-difference/property-types",method=RequestMethod.GET)
+	@RequestMapping(value="/properties/top-percentage",method=RequestMethod.GET)
 	public @ResponseBody List<PropertyListing> findMostExpensivePropertiesByPercentage(
 			@RequestParam(value="percentage", required=true) double percentage) {
 		return priceComparisonService.findMostExpensivePropertiesByPercentage(percentage);
