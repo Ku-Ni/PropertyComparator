@@ -3,9 +3,11 @@ Overview:
 ==================================================================================================
 
 Here is my completed Back-End Developer technical test.
+This has also been added to my GitHub: https://github.com/Ku-Ni/PropertyComparator
 I created a web service using the CSV data file as a repository, with end points based on the assignment questions.
 
 There are three end points:
+
 ---------------------------
 GET /average-price/postcode
 ---------------------------
